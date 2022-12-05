@@ -1,4 +1,4 @@
-#include "listaseq.h"
+#include "inc/listaseq.h"
 #include "ui_listaseq.h"
 
 ListaSeq::ListaSeq(QWidget *parent) :

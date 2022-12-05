@@ -1,4 +1,4 @@
-#include "pilha.h"
+#include "inc/pilha.h"
 #include "ui_pilha.h"
 
 Pilha::Pilha(QWidget *parent) :

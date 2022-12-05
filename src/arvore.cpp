@@ -1,4 +1,4 @@
-#include "arvore.h"
+#include "inc/arvore.h"
 #include "ui_arvore.h"
 
 Arvore::Arvore(QWidget *parent) :

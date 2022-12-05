@@ -9,29 +9,29 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    arvore.cpp \
-    fila.cpp \
-    listaenc.cpp \
-    listaseq.cpp \
+    src\arvore.cpp \
+    src\fila.cpp \
+    src\listaenc.cpp \
+    src\listaseq.cpp \
     main.cpp \
-    mainwindow.cpp \
-    pilha.cpp
+    src\mainwindow.cpp \
+    src\pilha.cpp
 
 HEADERS += \
-    arvore.h \
-    fila.h \
-    listaenc.h \
-    listaseq.h \
-    mainwindow.h \
-    pilha.h
+    inc\arvore.h \
+    inc\fila.h \
+    inc\listaenc.h \
+    inc\listaseq.h \
+    inc\mainwindow.h \
+    inc\pilha.h
 
 FORMS += \
-    arvore.ui \
-    fila.ui \
-    listaenc.ui \
-    listaseq.ui \
-    mainwindow.ui \
-    pilha.ui
+    forms\arvore.ui \
+    forms\fila.ui \
+    forms\listaenc.ui \
+    forms\listaseq.ui \
+    forms\mainwindow.ui \
+    forms\pilha.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

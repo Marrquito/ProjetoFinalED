@@ -1,4 +1,4 @@
-#include "listaenc.h"
+#include "inc/listaenc.h"
 #include "ui_listaenc.h"
 
 ListaEnc::ListaEnc(QWidget *parent) :

@@ -1,10 +1,10 @@
-#include "mainwindow.h"
+#include "inc/mainwindow.h"
 #include "ui_mainwindow.h"
-#include "listaseq.h"
-#include "listaenc.h"
-#include "pilha.h"
-#include "fila.h"
-#include "arvore.h"
+#include "inc/listaseq.h"
+#include "inc/listaenc.h"
+#include "inc/pilha.h"
+#include "inc/fila.h"
+#include "inc/arvore.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
