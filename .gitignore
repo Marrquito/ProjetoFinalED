@@ -1,0 +1,11 @@
+.qtc_clangd
+debug 
+release
+*.user
+.qmake.stash
+ui_arvore.h
+ui_fila.h
+ui_listaenc.h
+ui_listaseq.h
+ui_mainwindow.h
+ui_pilha.h
