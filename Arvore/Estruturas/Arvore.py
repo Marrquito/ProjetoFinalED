@@ -95,15 +95,16 @@ class Arvore:
                 return self.insereRecursivo(valor, no.direita)
 
     def display(self):
-        # Para o print da árvore, precisa apenas das linhas
-        linhas, *_ = self.displayAux(self.raiz)
+        # Vai chamar a função recursiva e pegar dela todas as linhas de string que serão printadas
+        linhas, *_ = self.displayRecursivo(self.raiz)
         return linhas
 
-    def displayAux(self, no):
+    def displayRecursivo(self, no):
         # Retorna a lista do que será printado em cada linha, a largura, altura e a posição horizontal da raiz da subárvore
 
         # Caso 1 -> nó folha
         if no.esquerda is None and no.direita is None:
+            # Parada para a recursividade, a funcão displayRecursivo será chamada até encontrar o nó folha, em que começará a retornar
             # Aqui esses valores são referentes a um único nó, mas nos demais casos serão referentes à subárvore como um todo
             linha = '%s' % no.valor
             largura = len(linha)
@@ -113,8 +114,8 @@ class Arvore:
         
         # Caso 2 -> nó com apenas o filho da esquerda
         if no.direita is None:
-            # Valores acumulados da subárvore à esquerda
-            linhas, largura, altura, meio = self.displayAux(no.esquerda)
+            # Valores acumulados da subárvore à esquerda obtidos pela função recursiva
+            linhas, largura, altura, meio = self.displayRecursivo(no.esquerda)
             valor = '%s' % no.valor
             u = len(valor)
             # São calculados quantos espaços e quantos _ ficarão a ESQUERDA do nó com base na largura da subárvore e na posição do seu nó raiz
@@ -128,8 +129,8 @@ class Arvore:
         
         # Caso 3 -> nó com apenas o filho da direita
         if no.esquerda is None:
-            # Valores acumulados da subárvore à direita
-            linhas, largura, altura, meio = self.displayAux(no.direita)
+            # Valores acumulados da subárvore à direita obtidos pela função recursiva
+            linhas, largura, altura, meio = self.displayRecursivo(no.direita)
             valor = '%s' % no.valor
             u = len(valor)
             # São calculados quantos espaços e quantos _ ficarão a DIREITA do nó com base na largura da subárvore e na posição do seu nó raiz
@@ -142,9 +143,9 @@ class Arvore:
             return [primeiraLinha, segundaLinha] + linhasDeslocadas, largura + u, altura + 2, u // 2
 
         # Caso 4 -> nó com os dois filhos
-        # Valores acumulados das duas subárvores
-        esquerda, largura, altura, meio = self.displayAux(no.esquerda)
-        direita, largura2, altura2, meio2 = self.displayAux(no.direita)
+        # Valores acumulados das duas subárvores obtidos pela função recursiva
+        esquerda, largura, altura, meio = self.displayRecursivo(no.esquerda)
+        direita, largura2, altura2, meio2 = self.displayRecursivo(no.direita)
         valor = '%s' % no.valor
         u = len(valor)
         # Calculados quantos espaços e _ com base nas duas sub-árvores abaixo
