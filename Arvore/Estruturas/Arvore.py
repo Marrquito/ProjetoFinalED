@@ -95,6 +95,7 @@ class Arvore:
                 return self.insereRecursivo(valor, no.direita)
 
     def display(self):
+        # Para o print da árvore, precisa apenas das linhas
         linhas, *_ = self.displayAux(self.raiz)
         return linhas
 
@@ -141,7 +142,7 @@ class Arvore:
             return [primeiraLinha, segundaLinha] + linhasDeslocadas, largura + u, altura + 2, u // 2
 
         # Caso 4 -> nó com os dois filhos
-        # Valores acumulados do que está embaixo
+        # Valores acumulados das duas subárvores
         esquerda, largura, altura, meio = self.displayAux(no.esquerda)
         direita, largura2, altura2, meio2 = self.displayAux(no.direita)
         valor = '%s' % no.valor
@@ -149,44 +150,15 @@ class Arvore:
         # Calculados quantos espaços e _ com base nas duas sub-árvores abaixo
         # OBS: Lembrar que meio não é necessariamente largura da subárvore/2 (ela pode estar desbalanceada), mas a posição do nó raiz dela
         primeiraLinha = (meio + 1) * ' ' + (largura - meio - 1) * '_' + valor + meio2 * '_' + (largura2 - meio2) * ' '
+        # São calculados os espaços, os \ e os / da linha entre dois nós
         segundaLinha = meio * ' ' + '/' + (largura - meio - 1 + u + meio2) * ' ' + '\\' + (largura2 - meio2 - 1) * ' '
+        # Aqui ocorre o ajuste horizontal nas duas subárvores, a da esquerda recebe espaços para não colidir com a da direita, e a da direita para não colidir com outras subárvores que possam ter ficado a sua direita
         if altura < altura2:
             esquerda += [largura * ' '] * (altura2 - altura)
         elif altura2 < altura:
             direita += [largura2 * ' '] * (altura - altura2)
+        # Aqui as linhas das subárvores são combinadas e espaçadas tendo a posição da raiz como referência
         zipped_lines = zip(esquerda, direita)
         linhas = [primeiraLinha, segundaLinha] + [a + u * ' ' + b for a, b in zipped_lines]
-        # A largura acrescida ao meio é apenas a da subárvore da esquerda
+        # São retornadas todas as linhas (as 2 referentes ao nó e todas das duas subárvores), a largura é acrescida com base nas duas subárvores mais a largura do valor da raiz, a altura é a maior dentre as subárvores + as 2 linhas da raiz, a largura acrescida ao meio é apenas a da subárvore da esquerda
         return linhas, largura + largura2 + u, max(altura, altura2) + 2, largura + u // 2
-
-
-# --- Teste ---
-
-# arvore = Arvore()
-
-# import random
-# for _ in range(50):
-#     arvore.insere(random.randint(1, 100))
-# opas = arvore.display()
-# opa = '\n'.join(opas)
-# print(opa)
-
-# arvore.insere(6)
-# arvore.insere(4)
-# arvore.insere(5)
-# arvore.insere(8)
-# arvore.insere(7)
-
-# print(arvore.raiz)
-# print(arvore.raiz.esquerda)
-# print(arvore.raiz.direita)
-# print(arvore.raiz.esquerda.direita)
-# print(arvore.in_ordem())
-
-# x = input()
-# while x != 0:
-#     arvore.insere(x)
-#     opas = arvore.display()
-#     opa = '\n'.join(opas)
-#     print(opa)
-#     x = input()
