@@ -4,11 +4,10 @@
 #include "inc/listaenc.h"
 #include "inc/pilha.h"
 #include "inc/fila.h"
-#include "inc/arvore.h"
+#include <QProcess>
+#include <Windows.h>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 }
@@ -25,8 +24,6 @@ void MainWindow::on_btnListaSec_clicked()
     listaSeq.exec();
 }
 
-
-
 void MainWindow::on_btnListaEnc_clicked()
 {
     ListaEnc listaEnc;
@@ -34,14 +31,12 @@ void MainWindow::on_btnListaEnc_clicked()
     listaEnc.exec();
 }
 
-
 void MainWindow::on_btnPilha_clicked()
 {
     Pilha pilha;
 
     pilha.exec();
 }
-
 
 void MainWindow::on_btnFila_clicked()
 {
@@ -52,8 +47,9 @@ void MainWindow::on_btnFila_clicked()
 
 void MainWindow::on_btnArvore_clicked()
 {
-    Arvore arvore;
+    QProcess p;
 
-    arvore.exec();
+    p.start("python3", QStringList() << "Arvore/main.py");
+    p.waitForFinished(-1);
+    p.close();
 }
-
