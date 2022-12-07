@@ -177,3 +177,4 @@ void ListaSeq::on_btn_consulta_clicked(){
     QMessageBox::information(this, "Consulta", str);
     ui->txt_consulta->clear();
 }
+

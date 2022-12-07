@@ -16,7 +16,7 @@ class ListaSeq : public QDialog
     Q_OBJECT
 
     public:
-        explicit ListaSeq(QWidget parent = nullptr);
+        explicit ListaSeq(QWidget *parent = nullptr);
         ~ListaSeq();
 
         bool vazia();
@@ -35,7 +35,7 @@ class ListaSeq : public QDialog
         void on_btn_consulta_clicked();
 
 private:
-        Ui::ListaSequi;
+        Ui::ListaSeq *ui;
         int dados[TAM_MAX];
         int nElementos;
 };
