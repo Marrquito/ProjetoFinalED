@@ -223,21 +223,55 @@ void ListaEnc::on_btnAddList_clicked()
     QString value = ui->txt_value->text();
     QString pos = ui->txt_pos->text();
     QString cont = ui->labelStack->text();
+    QString txt;
+
+    if(pos == ""){
+        pos = "1";
+    }
 
     insere(&minhaLista, value.toInt(), pos.toInt());
+    int valor_lista;
+
+    //QMessageBox::information(this, "Removeu", QString::number(minhaLista.tamanho));
+
+    nos* aux = minhaLista.cabeca;
+
+    while(aux != NULL){
+        txt.append(QString::number(aux->dado));
+        txt.append(" ");
+        aux = aux->prox;
+    }
+    /*
+    for(int i = 0; i < minhaLista.tamanho; i++){
+        elemento(minhaLista, i+1, &valor_lista);
+        txt.append(QString::number(valor_lista));
+        txt.append(" ");
+    }
+    */
+
     cont.append(value);
     cont.append(" ");
-    ui->labelStack->setText(cont);
+    ui->labelStack->setText(txt);
 
 }
 
 void ListaEnc::on_btnRemList_clicked()
 {
     QString value = ui->txt_remove->text();
+    QString txt;
     int dado = 0;
 
     remov(&minhaLista, value.toInt(), &dado);
     QMessageBox::information(this, "Removeu", value);
+
+    nos* aux = minhaLista.cabeca;
+    while(aux != NULL){
+        txt.append(QString::number(aux->dado));
+        txt.append(" ");
+        aux = aux->prox;
+    }
+
+    ui->labelStack->setText(txt);
 }
 
 

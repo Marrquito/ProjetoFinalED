@@ -60,7 +60,7 @@
      <string notr="true">color: #00401A;</string>
     </property>
     <property name="text">
-     <string>Valor a ser inserido na lista:</string>
+     <string>Posição a ser inserido na lista:</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="txt_value">
@@ -150,7 +150,7 @@ color: #525252;
     <string notr="true">color: #00401A;</string>
    </property>
    <property name="text">
-    <string>Posição em que sera inserido:</string>
+    <string>Valor que sera inserido:</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_pos">

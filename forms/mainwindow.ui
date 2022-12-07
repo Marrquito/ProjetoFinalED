@@ -14,7 +14,8 @@
    <string>Estruturas de Dados</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="face-cool"/>
+   <iconset theme="face-cool">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -42,7 +43,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -89,7 +90,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -130,14 +131,14 @@
        <item>
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Marco Antonio Cunha Cossetin - 20200011020</string>
+          <string>Rafael De Melo Oliveira - 20200013481</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_7">
          <property name="text">
-          <string>Marco Antonio Cunha Cossetin - 20200011020</string>
+          <string>Virgilio Schettini de Oliveira Neto - 20200013848</string>
          </property>
         </widget>
        </item>
@@ -159,7 +160,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>32</height>
+     <height>31</height>
     </rect>
    </property>
   </widget>

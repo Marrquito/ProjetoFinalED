@@ -103,7 +103,7 @@ class Arvore:
         # Retorna a lista do que será printado em cada linha, a largura, altura e a posição horizontal da raiz da subárvore
 
         # Caso 1 -> nó folha
-        if no.esquerda is None and no.direita is None:
+        if no.esquerda == None and no.direita == None:
             # Parada para a recursividade, a funcão displayRecursivo será chamada até encontrar o nó folha, em que começará a retornar
             # Aqui esses valores são referentes a um único nó, mas nos demais casos serão referentes à subárvore como um todo
             linha = '%s' % no.valor
@@ -113,7 +113,7 @@ class Arvore:
             return [linha], largura, altura, meio
         
         # Caso 2 -> nó com apenas o filho da esquerda
-        if no.direita is None:
+        if no.direita == None:
             # Valores acumulados da subárvore à esquerda obtidos pela função recursiva
             linhas, largura, altura, meio = self.displayRecursivo(no.esquerda)
             valor = '%s' % no.valor
@@ -128,7 +128,7 @@ class Arvore:
             return [primeiraLinha, segundaLinha] + linhasDeslocadas, largura + u, altura + 2, largura + u // 2
         
         # Caso 3 -> nó com apenas o filho da direita
-        if no.esquerda is None:
+        if no.esquerda == None:
             # Valores acumulados da subárvore à direita obtidos pela função recursiva
             linhas, largura, altura, meio = self.displayRecursivo(no.direita)
             valor = '%s' % no.valor

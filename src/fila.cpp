@@ -29,6 +29,9 @@ void Fila::on_btnAddFila_clicked()
 {
     QString value = ui->txt_valor_fila->text();
     QString txt   = ui->mostrar_fila->text();
+    if(value==""){
+        return;
+    }
     int val = value.toInt();
 
     this->insere(this->fila, val);
