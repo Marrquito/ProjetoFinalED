@@ -5,11 +5,11 @@
 #include <QMessageBox>
 #include <iostream>
 
-ListaEnc::ListaEnc(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::ListaEnc)
+ListaEnc::ListaEnc(QWidget *parent) : QDialog(parent), ui(new Ui::ListaEnc)
 {
     ui->setupUi(this);
+
+    cria(&this->minhaLista);
 }
 
 ListaEnc::~ListaEnc()
@@ -87,7 +87,9 @@ int ListaEnc::insereInicioLista(tLista *lista, int valor) {
          return 0;
     }
     novoNo->dado = valor;
-    novoNo->prox = NULL;
+
+    if(tamanho(*lista) > 1) novoNo->prox = lista->cabeca;
+    else novoNo->prox = NULL;
     lista->cabeca = novoNo;
     lista->tamanho++;
     return 1;
@@ -229,7 +231,7 @@ void ListaEnc::on_btnAddList_clicked()
         pos = "1";
     }
 
-    insere(&minhaLista, value.toInt(), pos.toInt());
+    insere(&this->minhaLista, value.toInt(), pos.toInt());
     int valor_lista;
 
     //QMessageBox::information(this, "Removeu", QString::number(minhaLista.tamanho));
@@ -241,13 +243,6 @@ void ListaEnc::on_btnAddList_clicked()
         txt.append(" ");
         aux = aux->prox;
     }
-    /*
-    for(int i = 0; i < minhaLista.tamanho; i++){
-        elemento(minhaLista, i+1, &valor_lista);
-        txt.append(QString::number(valor_lista));
-        txt.append(" ");
-    }
-    */
 
     cont.append(value);
     cont.append(" ");
@@ -261,7 +256,7 @@ void ListaEnc::on_btnRemList_clicked()
     QString txt;
     int dado = 0;
 
-    remov(&minhaLista, value.toInt(), &dado);
+    remov(&this->minhaLista, value.toInt(), &dado);
     QMessageBox::information(this, "Removeu", value);
 
     nos* aux = minhaLista.cabeca;
@@ -281,7 +276,7 @@ void ListaEnc::on_pushButton_3_clicked() // consultar
     QString str;
     int dado = 0;
 
-    elemento(minhaLista, pos.toInt(), &dado);
+    elemento(this->minhaLista, pos.toInt(), &dado);
     str.append("elemento consultado: ");
     str.append(QString::number(dado));
     QMessageBox::information(this, "Valor consultado ", str);

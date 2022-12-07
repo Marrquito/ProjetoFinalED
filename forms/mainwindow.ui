@@ -145,7 +145,7 @@
        <item>
         <widget class="QLabel" name="label_6">
          <property name="text">
-          <string>Marco Antonio Cunha Cossetin - 20200011020</string>
+          <string>Néfi Coelho Leite - 20190030796</string>
          </property>
         </widget>
        </item>
@@ -160,7 +160,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>31</height>
+     <height>32</height>
     </rect>
    </property>
   </widget>
