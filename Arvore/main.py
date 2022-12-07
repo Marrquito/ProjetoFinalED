@@ -65,7 +65,7 @@ def on_buttonAdd_clicked():
 
         textDisplay = '\nÁrvore Binária de Pesquisa:\n'
         textDisplay += '\n'.join(arvore.display())
-        # print(textDisplay)
+        print(textDisplay)
         labelDisplay.setText(textDisplay)
 
 buttonAdd.clicked.connect(on_buttonAdd_clicked)
